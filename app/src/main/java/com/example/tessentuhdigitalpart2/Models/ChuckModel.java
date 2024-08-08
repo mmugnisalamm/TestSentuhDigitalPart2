@@ -1,16 +1,18 @@
 package com.example.tessentuhdigitalpart2.Models;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 
 public class ChuckModel {
-    ArrayList<String> categories;
+    JSONArray categories;
     String created_at, icon_url, id, updated_at, url, value;
 
-    public ArrayList<String> getCategories() {
+    public JSONArray getCategories() {
         return categories;
     }
 
-    public void setCategories(ArrayList<String> categories) {
+    public void setCategories(JSONArray categories) {
         this.categories = categories;
     }
 

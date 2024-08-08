@@ -17,6 +17,8 @@ import com.bumptech.glide.Glide;
 import com.example.tessentuhdigitalpart2.Models.ChuckModel;
 import com.example.tessentuhdigitalpart2.R;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +62,11 @@ public class ChuckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private void populateItemRows(MyViewHolder holder, int position) {
         try {
             holder.tvId.setText(String.valueOf(mData.get(position).getId()));
-            holder.tvCategories.setText(String.valueOf(mData.get(position).getCategories().get(0)));
+            try {
+                holder.tvCategories.setText(String.valueOf(mData.get(position).getCategories().get(0)));
+            } catch (JSONException e) {
+                holder.tvCategories.setText("-");
+            }
             holder.tvValue.setText(String.valueOf(mData.get(position).getValue()));
             Glide.with(mContext).load(String.valueOf(mData.get(position).getIcon_url())).into(holder.ivData);
         } catch (Exception e) {
